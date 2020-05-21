@@ -27,5 +27,5 @@ If in a hurry, just run
 docker/nvidia/build.sh
 ```
 
-This should provide you with the image `ros-nvidia:kinetic-xenial`
-based on `osrf/ros:kinetic-desktop-full-xenial`.
+This should provide you with the image `ros:kinetic-gazebo7-xenial-nvidia`
+based on `nvidia/cudagl:9.0-base-ubuntu16.04`.

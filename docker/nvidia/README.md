@@ -8,5 +8,5 @@ To build a Docker image with NVIDIA GPU support for ROS Kinetic as described in 
 run
 
 ```bash
-docker build -t ros-nvidia:kinetic-xenial -f kinetic.Dockerfile .
+docker build -t ros:kinetic-gazebo7-xenial-nvidia -f kinetic.Dockerfile .
 ```
