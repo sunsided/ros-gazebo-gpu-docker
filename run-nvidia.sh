@@ -4,7 +4,8 @@
 set -euo pipefail
 
 # See README.md for building this image.
-DOCKER_IMAGE=ros:kinetic-gazebo7-xenial-nvidia
+CONTAINER_NAME=ros
+DOCKER_IMAGE=sunside/ros-gazebo-gpu:kinetic-nvidia
 
 # Which GPUs to use; see https://github.com/NVIDIA/nvidia-docker
 GPUS="all"
@@ -27,7 +28,7 @@ then
 fi
 
 docker run --rm -it \
-    --name ros \
+    --name "$CONTAINER_NAME" \
     --gpus "$GPUS" \
     --env="DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \

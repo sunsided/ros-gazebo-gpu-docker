@@ -1,9 +1,9 @@
 # ROS Kinetic Desktop Full + NVIDIA in Docker
 
-**TL;DR:** On Linux, run
+**TL;DR:** On Linux, to drop into an X11 enabled container created from [sunside/ros-gazebo-gpu:kinetic-nvidia](https://hub.docker.com/repository/docker/sunside/ros-gazebo-gpu),
+run
 
 ```bash
-docker/nvidia/build.sh
 ./run-nvidia.sh
 ```
 
@@ -52,7 +52,7 @@ If in a hurry, just run
 docker/nvidia/build.sh
 ```
 
-This should provide you with the image `ros:kinetic-gazebo7-xenial-nvidia`.
+This should provide you with the image [`sunside/ros-gazebo-gpu:kinetic-nvidia`](https://hub.docker.com/repository/docker/sunside/ros-gazebo-gpu).
 
 Start the container with
 

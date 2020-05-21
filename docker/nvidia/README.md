@@ -13,7 +13,7 @@ upgrade `gazebo7` using its [official sources](http://gazebosim.org/tutorials?ca
 To build the image, run
 
 ```bash
-docker build -t ros:kinetic-gazebo7-xenial-nvidia -f kinetic.Dockerfile .
+docker build -t sunside/ros-gazebo-gpu:kinetic-nvidia -f kinetic.Dockerfile .
 ```
 
 A `ros` user (password `ros`) will be created with default user and group IDs (`1000:1000`). If you need
@@ -23,7 +23,7 @@ different values, specify the `ROS_USER_ID` and `ROS_GROUP_ID` build arguments:
 docker build \
     --build-arg ROS_USER_ID=1000 \
     --build-arg ROS_GROUP_ID=1000 \
-    -t ros:kinetic-gazebo7-xenial-nvidia \
+    -t sunside/ros-gazebo-gpu:kinetic-nvidia \
     -f kinetic.Dockerfile .
 ```
 
