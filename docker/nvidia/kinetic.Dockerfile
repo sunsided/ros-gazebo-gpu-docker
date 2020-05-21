@@ -51,7 +51,13 @@ RUN addgroup --gid $ROS_GROUP_ID ros \
  && mkdir -p /workspace \
  && ln -s /workspace /home/workspace \
  && chown -R ros:ros /home/ros /workspace
+
+# Source the ROS configuration.
 RUN echo "source /opt/ros/kinetic/setup.bash" >> /home/ros/.bashrc
+
+# If the script is started from a Catkin workspace,
+# source its configuration as well.
+RUN echo "test -f devel/setup.bash && echo \"Found Catkin workspace.\" && source devel/setup.bash" >> /home/ros/.bashrc
 
 USER ros
 WORKDIR /workspace

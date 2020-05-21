@@ -26,3 +26,6 @@ docker build \
     -t ros:kinetic-gazebo7-xenial-nvidia \
     -f kinetic.Dockerfile .
 ```
+
+If the directory the script is started in contains a Catkin workspace, it will automatically
+source the `devel/source.bash` script.
