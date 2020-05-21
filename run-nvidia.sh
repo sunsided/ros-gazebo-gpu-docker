@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # See README.md for building this image.
-DOCKER_IMAGE=ros-nvidia:kinetic-xenial
+DOCKER_IMAGE=ros:kinetic-gazebo7-xenial-nvidia
 
 # Which GPUs to use; see https://github.com/NVIDIA/nvidia-docker
 GPUS="all"
