@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     ros-kinetic-desktop-full \
  && rm -rf /var/lib/apt/lists/*
 
-# Upgrade Gazebo 7
+# Upgrade Gazebo 7.
 RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
 RUN wget https://packages.osrfoundation.org/gazebo.key -O - | apt-key add -
 RUN apt-get update && apt-get install -y \
@@ -41,3 +41,17 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 # Some QT-Apps/Gazebo don't show controls without this
 ENV QT_X11_NO_MITSHM 1
+
+# Create users and groups.
+ARG ROS_USER_ID=1000
+ARG ROS_GROUP_ID=1000
+
+RUN addgroup --gid $ROS_GROUP_ID ros \
+ && useradd --gid $ROS_GROUP_ID --uid $ROS_USER_ID -ms /bin/bash -p "$(openssl passwd -1 ros)" -G root ros \
+ && mkdir -p /workspace \
+ && ln -s /workspace /home/workspace \
+ && chown -R ros:ros /home/ros /workspace
+RUN echo "source /opt/ros/kinetic/setup.bash" >> /home/ros/.bashrc
+
+USER ros
+WORKDIR /workspace
