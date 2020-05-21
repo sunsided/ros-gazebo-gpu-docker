@@ -51,6 +51,7 @@ ARG ROS_GROUP_ID=1000
 
 RUN addgroup --gid $ROS_GROUP_ID ros \
  && useradd --gid $ROS_GROUP_ID --uid $ROS_USER_ID -ms /bin/bash -p "$(openssl passwd -1 ros)" -G root,sudo ros \
+ && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
  && mkdir -p /workspace \
  && ln -s /workspace /home/workspace \
  && chown -R ros:ros /home/ros /workspace
