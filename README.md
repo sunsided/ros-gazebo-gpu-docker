@@ -11,6 +11,13 @@ be found all around the web (including the [official documentation](http://wiki.
 
 ## GPU support
 
+**Note:** At the point of writing this, `nvidia-docker2` has been deprecated
+and replaced with `nvidia-container-toolkit`. As a result,
+`--runtime="nvidia"` is not a valid option do `docker` anymore
+and `--gpus "all"` (or similar) should be used instead.
+Because of this, an NVIDIA specific Docker image isn't needed anymore,
+but we can still install some utilities related to 3D graphics.
+
 For NVIDIA GPU support, go to the [docker/nvidia](docker/nvidia)
 directory and follow the instructions [there](docker/nvidia/README.md).
 
