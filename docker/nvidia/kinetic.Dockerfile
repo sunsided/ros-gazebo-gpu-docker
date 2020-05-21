@@ -5,7 +5,7 @@ FROM nvidia/cudagl:9.0-base-ubuntu16.04
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     mesa-utils \
     vim \
-    build-essential \
+    build-essential gdb \
     cmake cmake-curses-gui \
     git \
     ssh \
