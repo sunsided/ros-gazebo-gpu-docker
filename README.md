@@ -7,6 +7,8 @@ docker/nvidia/build.sh
 ./run-nvidia.sh
 ```
 
+You'll be user `ros` with password `ros` and `sudo` powers.
+
 ---
 
 I am aware that ROS Kinetic is somewhat outdated.

@@ -28,6 +28,9 @@ RUN apt-get update && apt-get install -y \
     gazebo7 \
  && rm -rf /var/lib/apt/lists/*
 
+# Initialize rosdep
+RUN rosdep init
+
 # Only for nvidia-docker 1.0
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 # ENV PATH /usr/local/nvidia/bin:${PATH}
@@ -47,7 +50,7 @@ ARG ROS_USER_ID=1000
 ARG ROS_GROUP_ID=1000
 
 RUN addgroup --gid $ROS_GROUP_ID ros \
- && useradd --gid $ROS_GROUP_ID --uid $ROS_USER_ID -ms /bin/bash -p "$(openssl passwd -1 ros)" -G root ros \
+ && useradd --gid $ROS_GROUP_ID --uid $ROS_USER_ID -ms /bin/bash -p "$(openssl passwd -1 ros)" -G root,sudo ros \
  && mkdir -p /workspace \
  && ln -s /workspace /home/workspace \
  && chown -R ros:ros /home/ros /workspace
@@ -60,4 +63,5 @@ RUN echo "source /opt/ros/kinetic/setup.bash" >> /home/ros/.bashrc
 RUN echo "test -f devel/setup.bash && echo \"Found Catkin workspace.\" && source devel/setup.bash" >> /home/ros/.bashrc
 
 USER ros
+RUN rosdep update
 WORKDIR /workspace
