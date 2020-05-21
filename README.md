@@ -1,5 +1,14 @@
 # ROS Kinetic Desktop Full + NVIDIA in Docker
 
+**TL;DR:** On Linux, run
+
+```bash
+docker/nvidia/build.sh
+./run-nvidia.sh
+```
+
+---
+
 I am aware that ROS Kinetic is somewhat outdated.
 However, for some projects I did I had the constraint to
 work with Kinetic and Gazebo 7 rather than any newer
@@ -42,3 +51,12 @@ docker/nvidia/build.sh
 ```
 
 This should provide you with the image `ros:kinetic-gazebo7-xenial-nvidia`.
+
+Start the container with
+
+```bash
+./run-nvidia.sh
+```
+
+and you're ready to go. Note that this will create a container named `ros`, so running the command twice won't work. You can,
+however, `docker exec -it ros bash` into the running container as often as you like.
