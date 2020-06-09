@@ -7,7 +7,7 @@ run
 ./run-nvidia.sh
 ```
 
-You'll be user `ros` with password `ros` and `sudo` powers.
+You'll be user `ros` with password `ros` and `sudo` powers. The current directory will be mounted to `/workspace` in the container.
 
 ---
 
