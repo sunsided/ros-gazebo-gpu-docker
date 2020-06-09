@@ -38,7 +38,7 @@ A core issues that arise when just following the official documentation(s) are t
 `--runtime="nvidia"` is not a valid option anymore
 and `--gpus "all"` (or similar) must be used instead.
 - The visualization tools (such as Gazebo and RViz) require OpenGL to work, which isn't available in the offical ROS Docker images (see [here](https://answers.ros.org/question/322029/nvidia-driver-problem-in-ubuntu-1804-host-with-a-ros-kinetic-desktop-full-docker/) and [here](https://stackoverflow.com/questions/44166269/libgl-error-failed-to-load-driver-swrast-in-docker-container)).
-- Gazebo 7.0 is provided with the official ROS Docker image, but is outdated (see [here](https://answers.gazebosim.org//question/6347/downloading-models-fails/) and [here](https://answers.gazebosim.org//question/18014/gazebo-7-ambulance-model-and-other-invalid-mesh-filename-extension-crash/)).
+- Gazebo 7.0 is provided with the official ROS Docker image, but is outdated (see [here](https://answers.gazebosim.org/question/6347/downloading-models-fails/) and [here](https://answers.gazebosim.org/question/18014/gazebo-7-ambulance-model-and-other-invalid-mesh-filename-extension-crash/)). The Docker image comes with Gazebo 7.x from Gazebosim's package sources.
 - X11 authentication may fail due to a subtle bug when passing arguments along.
 
 ## Build with GPU support
